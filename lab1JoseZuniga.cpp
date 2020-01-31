@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cstdlib>
+#include<math.h>
 using namespace std;
 
 int mcd(int a, int b){
@@ -62,6 +63,38 @@ void ej1() {
 	cout << "Ingrese el valor de b: ";//Validar?
 	cin >> b;
 	cout << "mcd(" << a << "," << b << ") = " << mcd(a,b) << endl;
+}
+
+int obtenerMayor(int* x){
+	int num;
+	for(int i = 3; i > 0; i--){
+		num += x[i] * pow(10,i);
+	}
+	return num;
+}
+
+int obtenerMenor(int* x){
+	int num;
+	for(int i = 0; i < 4; i++){
+		num += x[i] * pow(10,i);
+	}
+	return num;
+}
+
+ int operacion(int num) {
+	int n1, n2, n3 , n4;
+	n1 = num / 1000;
+	n2 = num / 100 - (n1 * 10);
+	n3 = num / 10 - ((n1 * 100) + (n2 * 10));
+	n4 = num - (n1 * 1000 + n2 * 100 + n3 * 10);
+	int* x = new int[4];
+	for(int i = 1; i < 4; i++) {
+		menor(4,x,i);
+	}
+	int mayor, menor;
+	mayor = obtenerMayor(x);
+	menor = obtenerMenor(x);
+	return mayor - menor;
 }
 
 int menu() {
