@@ -60,20 +60,8 @@ void ej1() {
 	int a, b;
 	cout << "Ingrese el valor de a: ";
 	cin >> a;
-	while(a < 0){
-		cout << "Debe ingresar un valor positivo!!\n";
-		cout << "Ingrese el valor de a: ";
-	        cin >> a;
-
-	}
 	cout << "Ingrese el valor de b: ";//Validar?
 	cin >> b;
-	while(b < 0){
-                cout << "Debe ingresar un valor positivo!!\n";
-                cout << "Ingrese el valor de b: ";
-                cin >> b;
-        }
-
 	cout << "mcd(" << a << "," << b << ") = " << mcd(a,b) << endl;
 }
 
