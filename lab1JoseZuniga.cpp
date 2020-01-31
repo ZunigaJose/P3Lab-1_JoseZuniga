@@ -14,20 +14,46 @@ int mcd(int a, int b){
 	return (mcd(b,r));
 }
 
-int menor(int size, int arr[]) {
-	int menor;
-	for(int i = 1; i < size; i++) {
-		
+void menor(int size, int* x, int pos) {
+	bool entro = false;
+	int menor = x[pos - 1], menorPos, valorPos = x[pos - 1];
+	for(int i = pos; i < size; i++) {
+		if(x[i] < menor) {
+			entro = true;
+			menor = x[i];
+			menorPos = i;
+		}	
 	}
+	if(entro) {
+		cout << entro;
+		x[pos - 1] = x[menorPos];
+		x[menorPos] = valorPos;
+	}
+}
 
+void imprimirArr(int size, int* x) {
+	for (int i = 0; i < size; i++) {
+		cout << "[" << x[i] << "]";
+	}
+	cout << endl;
 }
 
 void ej2() {
 	int size;
 	cout << "Ingrese el tamaño del arreglo: ";
 	cin >> size;
-	int arr[size];
+	int* x = new int [size];
+	for(int i = 0; i < size; i++){
+		x[i] = rand() % 100;
+	}
 
+	cout << "Arreglo original: " << endl;
+	imprimirArr(size, x);
+
+	for(int i = 1; i < size; i++) {
+		menor(size, x, i);
+		imprimirArr(size, x);
+	}
 }
 
 void ej1() {
@@ -43,6 +69,8 @@ int menu() {
 	int op;
 	cout << "0. Salir" << endl;
 	cout << "1. Ejercicio 1 (Mcd)" << endl;
+	cout << "2. Ejercicio 2 (Arreglos)" << endl;
+	cout << "3. Ejercicio 3 (Kaprekar)" << endl;
 	cin >> op;
 	if(op < 0 || op >3) {
 		return menu();
@@ -60,6 +88,9 @@ int main() {
 		break;
 		case 1:
 			ej1();
+		break;
+		case 2: 
+			ej2();
 		break;
 	}
 	} while (op != 0);
