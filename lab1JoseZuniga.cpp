@@ -25,7 +25,6 @@ void menor(int size, int* x, int pos) {
 		}	
 	}
 	if(entro) {
-		cout << entro;
 		x[pos - 1] = x[menorPos];
 		x[menorPos] = valorPos;
 	}
@@ -81,18 +80,20 @@ int menu() {
 int main() {
 	int op;
 	do {
-	op = menu();
-	switch (op) {
-		case 0:
-			
-		break;
-		case 1:
-			ej1();
-		break;
-		case 2: 
-			ej2();
-		break;
-	}
+		op = menu();
+		switch (op) {
+			case 0:
+				
+			break;
+			case 1:
+				ej1();
+			break;
+			case 2: 
+				ej2();
+			break;
+	
+			default: cout << "Opcion Incorrecta!!\nVuelva a Intentar:\n";
+		}
 	} while (op != 0);
 	return 0;
 }
