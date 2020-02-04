@@ -30,7 +30,7 @@ void menor(int size, int* x, int pos) {
 		x[menorPos] = valorPos;
 	}
 }
-
+//dfhdfh
 void imprimirArr(int size, int* x) {
 	for (int i = 0; i < size; i++) {
 		cout << "[" << x[i] << "]";
